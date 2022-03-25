@@ -1,10 +1,7 @@
 """Pacman, classic arcade game.
-
 Exercises
-
 1. Change the board.
 2. Make the ghosts faster
-
 """
 
 
