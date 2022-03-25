@@ -1,20 +1,12 @@
-"""Tic Tac Toe
-
-Exercises
-
-1. Give the X and O a different color and width.
-2. What happens when someone taps a taken spot?
-3. How would you detect when someone has won?
-4. How could you create a computer player?
-"""
 
 from turtle import *
 
 from freegames import line
 
+casillas = []
 
 def grid():
-    """Draw tic-tac-toe grid."""
+    """Dibuja el tablero en el que se va a jugar"""
     line(-67, 200, -67, -200)
     line(67, 200, 67, -200)
     line(-200, -67, 200, -67)
@@ -22,17 +14,19 @@ def grid():
 
 
 def drawx(x, y):
-    """Draw X player."""
-    line(x, y, x + 90, y + 90)
-    line(x, y + 90, x + 90, y)
+    """Dibuja el primer jugador que es el jugador X con su cambio de color"""
+    color("red")
+    line(x + 75, y + 75, x + 50, y + 50)
+    line(x + 75, y + 50, x + 50, y + 75)
 
 
 def drawo(x, y):
-    """Draw O player."""
+    """Dibuja el segundo jugador que es el jugador O con su cambio de color"""
+    color("blue")
     up()
-    goto(x + 50, y + 25)
+    goto(x + 70, y + 45)
     down()
-    circle(25)
+    circle(20)
 
 
 def floor(value):
@@ -45,16 +39,24 @@ players = [drawx, drawo]
 
 
 def tap(x, y):
-    """Draw X or O in tapped square."""
+    """Marca la jugada que hizo el jugador en el cuadro que se la asigno"""
+    global casillas
     x = floor(x)
     y = floor(y)
-    player = state['player']
+    coor = [x, y]
+    player = state["player"]
     draw = players[player]
-    draw(x, y)
-    update()
-    state['player'] = not player
+    if coor not in casillas:
+        casillas.append(coor)
+        draw(x, y)
+        update()
+        state["player"] = not player
+    else:
+        return
+        
 
 
+"""Nos da el tamaño que va a tener el tablero al ser desplegado"""
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
