@@ -15,3 +15,5 @@ Utilizando el código del juego Tic Tac Toe pudimos encontrar con la libreria de
 - Primer ejercicio, para cambiar el tamaño de los simbolos tuve que alterar los datos de las "x" y las "y" para que asi sean más pequeñas y para centrarlas debi de igual manera alterar los datos buscando los datos mas acertados al centro. 
 
 - Segundo ejercicio, para que no se pueda sobre escribir en un mismo cuadro se tuve que hacer una lista en la parte superior de todo el programa, despues en la funcion tap se agrego un "global casillas" y unas "coordenas = [x, y]"  al hacer eso se hizo un ciclo "if" con las coordenadas y las casillas haciendo que se agreguen y se actualice, al querer ingresar un simbolo en donde ya hay uno no te deja y regresa y se repite el ciclo. 
+
+### Fin 
