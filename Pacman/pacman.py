@@ -21,7 +21,7 @@ state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
-# vecotores que describen pacman y ghosts
+# vecotores que describen pacman y ghosts posiciones
 pacman = vector(-40, -80)
 ghosts = [
     [vector(-180, 160), vector(5, 0)],
@@ -115,12 +115,12 @@ def world():
 
     for index in range(len(tiles)):
         tile = tiles[index]
-
+        # Dibuja Muros
         if tile > 0:
             x = (index % 20) * 20 - 200
             y = 180 - (index // 20) * 20
             square(x, y)
-
+            # Dibuja pildoras
             if tile == 1:
                 path.up()
                 path.goto(x + 10, y + 10)
@@ -152,7 +152,7 @@ def move():
     up()
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
-
+    # Ciclo para settear posicion de ghosts y movimiento
     for point, course in ghosts:
         if valid(point + course):
             point.move(course)
@@ -171,7 +171,7 @@ def move():
         goto(point.x + 10, point.y + 10)
         dot(20, 'red')
     update()
-
+    # Condicion de colisiones para terminar el juego
     for point, course in ghosts:
         if abs(pacman - point) < 20:
             return
@@ -191,7 +191,10 @@ def change(x, y):
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
+# Define posicion del writer y color
+writer.up()
 writer.goto(160, 160)
+writer.down()
 writer.color('white')
 writer.write(state['score'])
 listen()
