@@ -41,11 +41,11 @@ def tap(x, y):
         hide[mark] = False
         state['mark'] = None
 
-    click_counter +=1
+    click_counter += 1
     print(click_counter)
 
     if hide == [False] * 64:
-        print("Terminaste!!")
+        print("Terminaste!!!")
 
 def draw():
     "Draw image and tiles."
