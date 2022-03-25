@@ -1,7 +1,10 @@
 """Pacman, classic arcade game.
+
 Exercises
+
 1. Change the board.
 2. Make the ghosts faster
+
 """
 
 
@@ -12,7 +15,7 @@ from turtle import clear, update, ontimer
 from turtle import setup, hideturtle, tracer, listen, onkey, done
 from freegames import floor, vector
 
-
+vel = int(input("Define velocidad 5-99, 5 es mas rapido y 100 muy lento: "))
 # Se definen variables y objetos
 state = {'score': 0}
 path = Turtle(visible=False)
@@ -173,7 +176,7 @@ def move():
         if abs(pacman - point) < 20:
             return
 
-    ontimer(move, 100)
+    ontimer(move, vel)
 
 
 def change(x, y):
